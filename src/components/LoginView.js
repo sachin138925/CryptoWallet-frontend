@@ -37,10 +37,10 @@ const LoginView = ({ onWalletCreated, onWalletLoaded, loading }) => {
                     <span className={clsx({ active: mode === "fetch" })} onClick={() => setMode("fetch")}>Access Wallet</span>
                 </div>
                 <div className="input-group">
-                    <input placeholder="Wallet Name" value={walletName} onChange={(e) => setWalletName(e.target.value)} />
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSubmit()} />
-                    {mode === "create" && (<input type="password" placeholder="Confirm Password" value={confirmPw} onChange={(e) => setConfirmPw(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}/>)}
-                </div>
+    <input name="walletName" placeholder="Wallet Name" value={walletName} onChange={(e) => setWalletName(e.target.value)} />
+    <input name="password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSubmit()} />
+    {mode === "create" && (<input name="confirmPassword" type="password" placeholder="Confirm Password" value={confirmPw} onChange={(e) => setConfirmPw(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}/>)}
+</div>
                 <button className="btn btn-primary" onClick={handleSubmit} disabled={loading}>
                     {loading ? "Loading..." : (mode === "create" ? "Create & Secure Wallet" : "Access My Wallet")}
                 </button>
